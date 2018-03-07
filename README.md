@@ -6,4 +6,4 @@ Bitcoin Euro is a decentralized cryptocurrency that builds on the latest version
 
 <h2>License</h2>
 
-Bitcoin ABC is released under the terms of the MIT license. See COPYING for more information or see https://opensource.org/licenses/MIT.
+Bitcoin Euro is released under the terms of the MIT license. See COPYING for more information or see https://opensource.org/licenses/MIT.
