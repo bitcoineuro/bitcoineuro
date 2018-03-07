@@ -1,3 +1,5 @@
+<img src = "http://bitcoineurocore.org/new/index_htm_files/3885.jpg" alt = "BitcoinEuro"/>
+
 This repository is the source code of the Bitcoin Euro project website
 
 <h2>What is Bitcoin Euro?</h2>
