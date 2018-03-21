@@ -1,4 +1,4 @@
-<img src = "http://bitcoineurocore.org/new/index_htm_files/3885.jpg" alt = "BitcoinEuro"/>
+<img src = "https://bitcoineurocore.org/img/BCE_banner_small.jpg" alt = "BitcoinEuro"/>
 
 This repository is the source code of the Bitcoin Euro project website  (ready on 1 April 2018)
 
