@@ -1,0 +1,33 @@
+# /etc/conf.d/bitcoineurod: config file for /etc/init.d/bitcoineurod
+
+# Config file location
+#BITCOINEUROD_CONFIGFILE="/etc/bitcoineuro/bitcoineuro.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOINEUROD_USER)
+#BITCOINEUROD_PIDDIR="/var/run/bitcoineurod"
+
+# What filename to give the pidfile
+#BITCOINEUROD_PIDFILE="${BITCOINEUROD_PIDDIR}/bitcoineurod.pid"
+
+# Where to write bitcoineurod data (be mindful that the blockchain is large)
+#BITCOINEUROD_DATADIR="/var/lib/bitcoineurod"
+
+# User and group to own bitcoineurod process
+#BITCOINEUROD_USER="bitcoineuro"
+#BITCOINEUROD_GROUP="bitcoineuro"
+
+# Path to bitcoineurod executable
+#BITCOINEUROD_BIN="/usr/bin/bitcoineurod"
+
+# Nice value to run bitcoineurod under
+#BITCOINEUROD_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#BITCOINEUROD_OPTS=""
+
+# The timeout in seconds OpenRC will wait for bitcoineurod to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+BITCOINEUROD_SIGTERM_TIMEOUT=60

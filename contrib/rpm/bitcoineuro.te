@@ -1,0 +1,81 @@
+policy_module(bitcoineuro, 1.100.1)
+
+########################################
+#
+# Declarations
+#
+
+type bitcoineuro_t;
+type bitcoineuro_exec_t;
+init_daemon_domain(bitcoineuro_t, bitcoineuro_exec_t)
+
+permissive bitcoineuro_t;
+
+type bitcoineuro_initrc_exec_t;
+init_script_file(bitcoineuro_initrc_exec_t)
+
+type bitcoineuro_conf_t;
+files_type(bitcoineuro_conf_t)
+
+type bitcoineuro_var_lib_t;
+files_type(bitcoineuro_var_lib_t)
+
+type bitcoineuro_var_run_t;
+files_type(bitcoineuro_var_run_t)
+
+type bitcoineuro_port_t;
+corenet_port(bitcoineuro_port_t)
+
+########################################
+#
+# bitcoineuro local policy
+#
+allow bitcoineuro_t self:process { fork };
+
+allow bitcoineuro_t self:fifo_file rw_fifo_file_perms;
+allow bitcoineuro_t self:unix_stream_socket create_stream_socket_perms;
+
+manage_dirs_pattern(bitcoineuro_t, bitcoineuro_conf_t, bitcoineuro_conf_t)
+manage_files_pattern(bitcoineuro_t, bitcoineuro_conf_t, bitcoineuro_conf_t)
+
+manage_dirs_pattern(bitcoineuro_t, bitcoineuro_var_lib_t, bitcoineuro_var_lib_t)
+manage_files_pattern(bitcoineuro_t, bitcoineuro_var_lib_t, bitcoineuro_var_lib_t)
+files_var_lib_filetrans(bitcoineuro_t, bitcoineuro_var_lib_t, { dir file })
+
+manage_dirs_pattern(bitcoineuro_t, bitcoineuro_var_run_t, bitcoineuro_var_run_t)
+manage_files_pattern(bitcoineuro_t, bitcoineuro_var_run_t, bitcoineuro_var_run_t)
+
+sysnet_dns_name_resolve(bitcoineuro_t)
+corenet_all_recvfrom_unlabeled(bitcoineuro_t)
+
+allow bitcoineuro_t self:tcp_socket create_stream_socket_perms;
+corenet_tcp_sendrecv_generic_if(bitcoineuro_t)
+corenet_tcp_sendrecv_generic_node(bitcoineuro_t)
+corenet_tcp_sendrecv_all_ports(bitcoineuro_t)
+corenet_tcp_bind_generic_node(bitcoineuro_t)
+
+gen_require(`
+    type bitcoineuro_port_t;
+')
+allow bitcoineuro_t bitcoineuro_port_t:tcp_socket name_bind;
+
+gen_require(`
+    type bitcoineuro_port_t;
+')
+allow bitcoineuro_t bitcoineuro_port_t:tcp_socket name_connect;
+
+domain_use_interactive_fds(bitcoineuro_t)
+
+files_read_etc_files(bitcoineuro_t)
+
+miscfiles_read_localization(bitcoineuro_t)
+
+sysnet_dns_name_resolve(bitcoineuro_t)
+
+allow bitcoineuro_t bitcoineuro_exec_t:file execute_no_trans;
+allow bitcoineuro_t self:process setsched;
+corecmd_exec_ls(bitcoineuro_t)
+corenet_tcp_connect_http_port(bitcoineuro_t)
+dev_read_urand(bitcoineuro_t)
+fs_getattr_xattr_fs(bitcoineuro_t)
+kernel_read_system_state(bitcoineuro_t)

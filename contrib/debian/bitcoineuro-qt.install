@@ -1,0 +1,6 @@
+usr/local/bin/bitcoineuro-qt usr/bin
+share/pixmaps/bitcoineuro32.xpm usr/share/pixmaps
+share/pixmaps/bitcoineuro16.xpm usr/share/pixmaps
+share/pixmaps/bitcoineuro128.png usr/share/pixmaps
+debian/bitcoineuro-qt.desktop usr/share/applications
+debian/bitcoineuro-qt.protocol usr/share/kde4/services/

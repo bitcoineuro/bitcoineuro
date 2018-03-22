@@ -1,0 +1,8 @@
+/usr/bin/bitcoineuro-cli		--	gen_context(system_u:object_r:bitcoineuro_exec_t,s0)
+/usr/sbin/bitcoineurod		--	gen_context(system_u:object_r:bitcoineuro_exec_t,s0)
+/usr/lib(64)?/bitcoineuro/bitcoineurod		--	gen_context(system_u:object_r:bitcoineuro_exec_t,s0)
+
+/etc/bitcoineuro(/.*)?		gen_context(system_u:object_r:bitcoineuro_conf_t,s0)
+/var/lib/bitcoineuro(/.*)?		gen_context(system_u:object_r:bitcoineuro_var_lib_t,s0)
+
+(/var)?/run/bitcoineurod(/.*)?   gen_context(system_u:object_r:bitcoineuro_var_run_t,s0)

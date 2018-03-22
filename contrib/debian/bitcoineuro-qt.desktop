@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=BitcoinEuro Core
+Comment=Connect to the BitcoinEuro P2P Network
+Comment[de]=Verbinde mit dem BitcoinEuro peer-to-peer Netzwerk
+Comment[fr]=BitcoinEuro, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=BitcoinEuro, eşten eşe kriptografik sanal para birimi
+Exec=bitcoineuro-qt %u
+Terminal=false
+Type=Application
+Icon=bitcoineuro128
+MimeType=x-scheme-handler/bitcoineuro;
+Categories=Office;Finance;
